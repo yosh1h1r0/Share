@@ -29,6 +29,13 @@ export default new Vuex.Store({
   actions: {
     async login({ commit }, { email, password }) {
       const responseLogin = await axios.post(
+        "https://glacial-retreat-42640.herokuapp.com/api/login",
+        {
+          email: email,
+          password: password,
+        }
+      );
+      const responseUser = await axios.get(
         "https://glacial-retreat-42640.herokuapp.com/api/user",
         {
           params: {
