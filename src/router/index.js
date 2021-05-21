@@ -6,7 +6,6 @@ import SignUp from '../views/SignUp.vue'
 import Profile from '../views/Profile.vue'
 import Detail from '../views/Detail.vue'
 import store from '../store/index';
-import { from } from 'core-js/core/array'
 
 Vue.use(VueRouter)
 
