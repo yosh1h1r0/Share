@@ -5,6 +5,8 @@ import Login from '../views/Login.vue'
 import SignUp from '../views/SignUp.vue'
 import Profile from '../views/Profile.vue'
 import Detail from '../views/Detail.vue'
+import store from '../store/index';
+import { from } from 'core-js/core/array'
 
 Vue.use(VueRouter)
 
@@ -22,25 +24,50 @@ const routes = [
   {
     path: '/profile',
     name: 'profile',
-    component: Profile
+    component: Profile,
+    meta: {
+      requiresAuth: true,
+    },
   },
   {
     path: '/home',
     name: 'Home',
-    component: Home
+    component: Home,
+    meta: {
+      requiresAuth: true,
+    },
   },
   {
-    path: '/detail',
+    path: '/detail/:id',
     name: 'detail',
     component: Detail,
-    props: true
-  }
-]
+    meta: {
+      requiresAuth: true,
+    },
+    props: true,
+  },
+];
 
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
-  routes
-})
+  routes,
+});
 
-export default router
+router.beforeEach((to, from, next) => {
+  if (
+    to.matched.some((record) => record.meta.requiresAuth) &&
+    !store.state.auth
+  ) {
+    next({
+      path: "/",
+      query: {
+        redirect: to.fullPath,
+      },
+    });
+  } else {
+    next();
+  }
+});
+
+export default router;
