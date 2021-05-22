@@ -85,7 +85,7 @@ export default {
       del(index) {
         axios
         .delete(
-          "https://glacial-retreat-42640.herokuapp.com/api/shares" +
+          "https://glacial-retreat-42640.herokuapp.com/api/shares/" +
           this.shares[index].item.id
         )
         .then((response) => {
@@ -104,7 +104,7 @@ export default {
         for (let i = 0; i < shares.data.data.length; i++) {
           await axios
           .get(
-            "https://glacial-retreat-42640.herokuapp.com/api/shares" +
+            "https://glacial-retreat-42640.herokuapp.com/api/shares/" +
             shares.data.data[i].id
           )
           .then((response) => {
@@ -128,6 +128,9 @@ export default {
     created() {
       if(this.$route.name === "home") {
         this.path = false;
+      }
+      if(this.$route.name === "detail") {
+        this.profile = false;
       }
       this.getShares();
     },
