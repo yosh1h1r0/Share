@@ -7,7 +7,7 @@
         <div class="title">
             <p>ホーム</p>
         </div>
-        <Message />
+        <Message :id="id"/>
         <div class="comment">
             <div class="comment-title">
                 <p>コメント</p>
@@ -51,6 +51,7 @@ export default {
             })
             .then((response) => {
                 console.log(response);
+                this.content = "";
                 this.content.go({
                     path: this.$router.currentRoute.path,
                     force: true,
@@ -64,6 +65,9 @@ export default {
                 this.data = response.data.comment;
             });
         },
+    },
+    created() {
+        this.comment();
     },
 components: {
     SideNavi,

@@ -10,8 +10,9 @@
                   class="icon" 
                   src="../assets/cross.png" 
                   @click="del(index)"
+                  alt
                   v-if="path && profile"
-                  >
+                  />
                   <img 
                   class="icon detail"
                    src="../assets/detail.png" 
@@ -21,8 +22,9 @@
                      pramas: { id: value.item.id },
                    })
                    "
+                   alt
                    v-if="profile"
-                   >
+                   />
               </div>
               <p class="text">{{ value.item.share}}</p>
           </div>
