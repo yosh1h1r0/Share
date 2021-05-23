@@ -26,7 +26,9 @@
     "eslint-plugin-vue": "^6.2.2",
     "vue-template-compiler": "^2.6.11"
   },
-  "rules": {
-    "no-console": "warn"
-  }
+"eslintConfig":{
+	"rules":{
+		"no-console":"warn"
+	}
+}
 }
