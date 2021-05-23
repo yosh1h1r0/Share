@@ -27,6 +27,6 @@
     "vue-template-compiler": "^2.6.11"
   },
   "rules": {
-    "no-console": 0
+    "no-console": "warn"
   }
 }
