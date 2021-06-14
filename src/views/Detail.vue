@@ -7,7 +7,7 @@
         <div class="title">
             <p>ホーム</p>
         </div>
-        <Message :id="id"/>
+        <Message :id="id" />
         <div class="comment">
             <div class="comment-title">
                 <p>コメント</p>
